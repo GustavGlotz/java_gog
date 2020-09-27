@@ -1,9 +1,10 @@
-package ru.gog.addressbook;
+package ru.gog.addressbook.tests;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.gog.addressbook.model.ContactData;
 
 public class ContactCreationTests {
   private WebDriver wd;

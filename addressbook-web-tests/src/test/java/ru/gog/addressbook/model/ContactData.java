@@ -1,4 +1,4 @@
-package ru.gog.addressbook;
+package ru.gog.addressbook.model;
 
 public class ContactData {
     private final String firstname;
