@@ -6,7 +6,7 @@ import ru.gog.addressbook.model.ContactData;
 
 import static org.testng.Assert.assertTrue;
 //comment
-public class ContactHelper extends HelperBase {
+public class ContactHelper extends BaseHelper {
 
     public ContactHelper(WebDriver wd) {
 

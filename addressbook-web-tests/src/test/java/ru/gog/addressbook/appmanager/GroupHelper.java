@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.gog.addressbook.model.GroupData;
 //comment
-public class GroupHelper extends HelperBase {
+public class GroupHelper extends BaseHelper {
 
     public GroupHelper(WebDriver wd) {
         super(wd);

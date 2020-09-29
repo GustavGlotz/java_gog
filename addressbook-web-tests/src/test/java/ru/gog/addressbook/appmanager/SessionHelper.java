@@ -3,7 +3,7 @@ package ru.gog.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 //comment
-public class SessionHelper extends HelperBase {
+public class SessionHelper extends BaseHelper {
     //comment
     public SessionHelper(WebDriver wd) {
 

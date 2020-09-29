@@ -2,10 +2,10 @@ package ru.gog.addressbook.appmanager;
 
 import org.openqa.selenium.*;
 //comment
-public class HelperBase {
+public class BaseHelper {
     protected WebDriver wd;
 
-    public HelperBase(WebDriver wd) {
+    public BaseHelper(WebDriver wd) {
         this.wd = wd;
     }
     //comment
