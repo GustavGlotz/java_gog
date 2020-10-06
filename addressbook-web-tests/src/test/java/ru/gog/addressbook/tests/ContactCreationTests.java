@@ -9,10 +9,8 @@ public class ContactCreationTests extends TestBase {
     @Test
     public void testContactCreation() throws Exception {
         app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(new ContactData("Тодд", "Говард",
+        app.getContactHelper().createContact(new ContactData("Тодд", "Говард",
                 "govard@test.ru", "68445226"));
-        app.getContactHelper().submitContactCreation();
-        app.getContactHelper().returnToHomePage();
     }
 
 }
