@@ -8,11 +8,11 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification() {
-        int before = app.getContactHelper().getContactCount();
         if (!app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact(new ContactData("Тодд", "Говард",
                     "govard@test.ru", "68445226"));
         }
+        int before = app.getContactHelper().getContactCount();
         app.getContactHelper().initContactModification(before - 1);
         app.getContactHelper().fillContactForm(new ContactData("Тодд", "Говард",
                 "govard@test.ru", "68445226"));
