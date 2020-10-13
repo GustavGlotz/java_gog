@@ -1,14 +1,16 @@
 package ru.gog.addressbook.model;
 
 public class ContactData {
-    private final String id;
+
+
+    private int id;
     private final String firstname;
     private final String lastname;
     private final String email;
     private final String phone;
 
 
-    public ContactData(String id, String firstname, String lastname, String email, String phone) {
+    public ContactData(int id, String firstname, String lastname, String email, String phone) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -17,15 +19,11 @@ public class ContactData {
     }
 
     public ContactData(String firstname, String lastname, String email, String phone) {
-        this.id = null;
+        this.id = 0;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
-    }
-
-    public String getId() {
-        return id;
     }
 
     @Override
@@ -35,17 +33,21 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         if (firstname != null ? !firstname.equals(that.firstname) : that.firstname != null) return false;
         return lastname != null ? lastname.equals(that.lastname) : that.lastname == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
         return result;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
@@ -71,6 +73,10 @@ public class ContactData {
 
     public String getPhone() {
         return phone;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
