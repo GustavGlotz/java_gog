@@ -85,4 +85,11 @@ public class ContactHelper extends BaseHelper {
         }
         return contacts;
     }
+
+    public void modifyContact(int index, ContactData contact) {
+        initContactModification(index);
+        fillContactForm(contact);
+        submitContactModification();
+        returnToHomePage();
+    }
 }
