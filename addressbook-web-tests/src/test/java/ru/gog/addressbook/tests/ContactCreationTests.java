@@ -16,8 +16,8 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() throws Exception {
         List<ContactData> before = app.contact().list();
         app.contact().initContactCreation();
-        ContactData contact = new ContactData("Тодд", "Говард",
-                "govard@test.ru", "68445226");
+        ContactData contact = new ContactData()
+                .withFirstname("Тодд").withLastname("Говард").withEmail("govard@test.ru").withPhone("68445226");
         app.contact().create(contact);
         List<ContactData> after = app.contact().list();
         Assert.assertEquals(after.size(), before.size() + 1);
@@ -29,5 +29,4 @@ public class ContactCreationTests extends TestBase {
         after.sort(byId);
         Assert.assertEquals(before, after);
     }
-
 }

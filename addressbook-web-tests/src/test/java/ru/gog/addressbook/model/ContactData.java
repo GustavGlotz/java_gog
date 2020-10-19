@@ -3,20 +3,38 @@ package ru.gog.addressbook.model;
 public class ContactData {
 
 
-    private int id;
-    private final String firstname;
-    private final String lastname;
-    private final String email;
-    private final String phone;
+    private int id = Integer.MAX_VALUE;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String phone;
 
-
-    public ContactData(int id, String firstname, String lastname, String email, String phone) {
-        this.id = id;
+    public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
+        return this;
     }
+
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+
+    }
+
+    public ContactData withPhone(String phone) {
+        this.phone = phone;
+        return this;
+    }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -36,13 +54,6 @@ public class ContactData {
         return result;
     }
 
-    public ContactData(String firstname, String lastname, String email, String phone) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-    }
 
     public int getId() {
         return id;
@@ -73,8 +84,5 @@ public class ContactData {
         return phone;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
 }
