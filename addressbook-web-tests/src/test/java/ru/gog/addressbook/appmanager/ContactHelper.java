@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.gog.addressbook.model.ContactData;
+import ru.gog.addressbook.model.Contacts;
 
 import java.util.HashSet;
 import java.util.List;
@@ -75,8 +76,8 @@ public class ContactHelper extends BaseHelper {
     }
 
 
-    public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<ContactData>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> line = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : line) {
             List<WebElement> cell = element.findElements(By.tagName("td"));
