@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import ru.gog.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -74,6 +76,19 @@ public class ContactHelper extends BaseHelper {
 
     public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> line = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : line) {
+            List<WebElement> cell = element.findElements(By.tagName("td"));
+            String firstname = cell.get(2).getText();
+            String lastname = cell.get(1).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+        }
+        return contacts;
+    }
+
+    public Set<ContactData> all() {
+        Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> line = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement element : line) {
             List<WebElement> cell = element.findElements(By.tagName("td"));
