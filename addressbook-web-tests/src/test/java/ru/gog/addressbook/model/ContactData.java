@@ -1,5 +1,7 @@
 package ru.gog.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
 
 
@@ -14,7 +16,13 @@ public class ContactData {
     private String mobilePhone;
     private String allPhones;
     private String allEmails;
+    private File photo;
 
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
 
     public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
@@ -94,6 +102,10 @@ public class ContactData {
 
     public String getAllEmails() {
         return allEmails;
+    }
+
+    public File getPhoto() {
+        return photo;
     }
 
     public String getHomePhone() {
