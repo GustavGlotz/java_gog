@@ -1,26 +1,39 @@
 package ru.gog.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 
 public class ContactData {
 
 
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String firstname;
+    @Expose
     private String lastname;
+    @Expose
     private String email;
     private String email2;
     private String email3;
     private String homePhone;
     private String workPhone;
+    @Expose
     private String mobilePhone;
     private String allPhones;
     private String allEmails;
+    @Expose
+    private String address;
     private File photo;
 
 
     public ContactData withPhoto(File photo) {
         this.photo = photo;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
         return this;
     }
 
@@ -102,6 +115,10 @@ public class ContactData {
 
     public String getAllEmails() {
         return allEmails;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public File getPhoto() {
