@@ -1,35 +1,60 @@
 package ru.gog.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
 
-
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
     @Expose
+    @Column(name = "firstname")
     private String firstname;
     @Expose
+    @Column(name = "lastname")
     private String lastname;
     @Expose
+    @Type(type = "text")
     private String email;
+    @Type(type = "text")
     private String email2;
+    @Type(type = "text")
     private String email3;
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+    @Transient
     private String allPhones;
+    @Transient
     private String allEmails;
     @Expose
+    @Type(type = "text")
     private String address;
-    private File photo;
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
 
-    public ContactData withPhoto(File photo) {
-        this.photo = photo;
+    public ContactData withPhoto( File photo) {
+        this.photo = photo.getPath();
         return this;
+    }
+
+    public File getPhoto() {
+        return new File(photo) ;
     }
 
     public ContactData withAddress(String address) {
@@ -121,9 +146,7 @@ public class ContactData {
         return address;
     }
 
-    public File getPhoto() {
-        return photo;
-    }
+
 
     public String getHomePhone() {
         return homePhone;
