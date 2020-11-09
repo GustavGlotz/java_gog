@@ -55,6 +55,10 @@ public class ContactHelper extends BaseHelper {
         click(By.linkText("home page"));
     }
 
+    public void openHomepage() {
+        click(By.linkText("home"));
+    }
+
 
     public void initContactModificationById(int id) {
         wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
@@ -109,7 +113,8 @@ public class ContactHelper extends BaseHelper {
         fillContactForm(contact);
         submitContactModification();
         contactCache = null;
-        returnToHomePage();
+
+
     }
 
 
